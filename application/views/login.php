@@ -77,7 +77,7 @@
 
 			<div id="login-content">
 
-				<form action="index.html">
+                            <form action="<?php echo site_url("login/outh");?>" method="post">
 
 					<div class="notification information png_bg">
 						<div>
@@ -88,12 +88,12 @@
 					<p>
 
 						<label>Username</label>
-						<input class="text-input" type="text" />
+                                                <input class="text-input" type="text" name="username"/>
 					</p>
 					<div class="clear"></div>
 					<p>
 						<label>Password</label>
-						<input class="text-input" type="password" />
+						<input class="text-input" type="password" name="password"/>
 					</p>
 
 					<div class="clear"></div>
