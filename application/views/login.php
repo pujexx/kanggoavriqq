@@ -77,11 +77,11 @@
 
 			<div id="login-content">
 
-                            <form action="<?php echo site_url("login/outh");?>" method="post">
+                            <form action="<?php echo site_url("login/auth");?>" method="post">
 
 					<div class="notification information png_bg">
 						<div>
-							Just click "Sign In". No password needed.
+							<?php echo $this->session->flashdata("notif");?>
 						</div>
 					</div>
 
