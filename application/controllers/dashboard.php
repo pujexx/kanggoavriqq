@@ -11,8 +11,18 @@ class Dashboard extends CI_Controller {
 
 
     function index() {
-        $this->load->view("template");
-     echo anchor("login/logout","Logout bro");
+        $data["content"]="welcome";
+        $this->load->view("template",$data);
+    
+    }
+    function newpost(){
+        $this->form_validation->set_rules("judul", "judul", "required");
+        $this->form_validation->set_rules("isi", "isi", "required");
+        if($this->form_validation->run()==true){
+            
+        }
+        $data['content']="newpost";
+        $this->load->view("template",$data);
     }
 
 }
