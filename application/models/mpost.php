@@ -32,6 +32,10 @@ class Mpost extends CI_Model {
             return $result->row_array();
         }
     }
+    function update($id,$data){
+        $this->db->where("id",$id);
+        $this->db->update($this->table,$data);
+    }
 
 }
 ?>

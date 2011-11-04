@@ -37,12 +37,19 @@ class Dashboard extends CI_Controller {
         $this->load->view("template", $data);
     }
 
-    function postedit($id="") {
+    function editpost($id="") {
         if ($id != "") {
             $this->form_validation->set_rules("judul", "judul", "required");
             $this->form_validation->set_rules("isi", "isi", "required");
+            $this->form_validation->set_rules("id", "id", "required");
             if ($this->form_validation->run() == true) {
-
+                $id = $this->input->post("id", true);
+                $judul = $this->input->post("judul", true);
+                $isi = $this->input->post("isi", true);
+                $date = date("Y-m-d");
+                $mlebu = array("judul" => $judul, "isi" => $isi, "time" => $date);
+                $this->mpost->update($id,$mlebu);
+                redirect("dashboard/showpost");
             }
             $data["post"] = $this->mpost->getone($id);
             $data['content'] = "editpost";
