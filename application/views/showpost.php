@@ -41,7 +41,7 @@
             <td>
                 <!-- Icons -->
                 <a href="<?php echo site_url("dashboard/editpost/".$post['id']);?>" title="Edit"><img src="<?php echo base_url();?>template/simplaadmin/resources/images/icons/pencil.png" alt="Edit" /></a>
-                <a href="<?php echo site_url("dashboard/deletepost/".$post['id']);?>" title="Delete"><img src="<?php echo base_url();?>template/simplaadmin/resources/images/icons/cross.png" alt="Delete" /></a>
+                <a href="<?php echo site_url("dashboard/deletepost/".$post['id']);?>" title="Delete" onclick="return confirm('are you sure ?');"><img src="<?php echo base_url();?>template/simplaadmin/resources/images/icons/cross.png" alt="Delete" /></a>
                
             </td>
         </tr>
