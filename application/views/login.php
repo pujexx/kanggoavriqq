@@ -40,17 +40,17 @@
 		<!--                       Javascripts                       -->
 
 		<!-- jQuery -->
-		<script type="text/javascript" src="resources/scripts/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>template/simplaadmin/resources/scripts/jquery-1.3.2.min.js"></script>
 
 
 		<!-- jQuery Configuration -->
-		<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>template/simplaadmin/resources/scripts/simpla.jquery.configuration.js"></script>
 
 		<!-- Facebox jQuery Plugin -->
-		<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>template/simplaadmin/resources/scripts/facebox.js"></script>
 
 		<!-- jQuery WYSIWYG Plugin -->
-		<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>template/simplaadmin/resources/scripts/jquery.wysiwyg.js"></script>
 
 		<!-- Internet Explorer .png-fix -->
 
@@ -71,7 +71,7 @@
 
 				<h1>Simpla Admin</h1>
 				<!-- Logo (221px width) -->
-				<img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" />
+				<img id="logo" src="<?php echo base_url();?>template/simplaadmin/resources/images/logo.png" alt="Simpla Admin logo" />
 
 			</div> <!-- End #logn-top -->
 
