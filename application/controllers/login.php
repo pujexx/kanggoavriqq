@@ -4,12 +4,15 @@ class Login extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-       
-        $this->load->model("mlogin");
 
+        $this->load->model("mlogin");
     }
 
     function index() {
+        if ($this->session->userdata("login") == "true") {
+
+            redirect("dashboard");
+        }
         $this->load->view("login");
     }
 
@@ -23,13 +26,12 @@ class Login extends CI_Controller {
                 $session = $this->mlogin->proseslogin($username, $password);
                 $this->session->set_userdata("id", $session['id']);
                 $this->session->set_userdata("login", "true");
-                redirect("dashboard");
+                redirect("dashboard", "refresh");
             } else {
                 $this->session->set_flashdata("notif", "Tidak ada dalam system");
-                redirect("login");
+                redirect("login", "refresh");
             }
-        }
-        else {
+        } else {
             $this->index();
         }
     }
@@ -37,8 +39,9 @@ class Login extends CI_Controller {
     function logout() {
         $this->session->unset_userdata("id");
         $this->session->unset_userdata("login");
+        $this->session->sess_destroy();
         $this->session->set_flashdata("notif", "Sudah keluar dari sistem");
-        redirect("login");
+        redirect('login');
     }
 
 }

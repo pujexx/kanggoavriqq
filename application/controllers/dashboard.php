@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         if ($this->session->userdata("login") != "true") {
             $this->session->set_flashdata("notif", "anda bukan admin");
-            redirect("login");
+            redirect("login","refresh");
         }
         $this->load->model("mpost");
     }
