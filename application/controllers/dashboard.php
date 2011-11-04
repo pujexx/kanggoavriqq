@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller {
             $date = date("Y-m-d");
             $mlebu = array("judul" => $judul, "isi" => $isi, "time" => $date);
             $this->mpost->save($mlebu);
-            redirect("dashboard");
+            redirect("dashboard/showpost");
         }
         $data['content'] = "newpost";
         $this->load->view("template", $data);
@@ -35,6 +35,26 @@ class Dashboard extends CI_Controller {
         $data['content'] = "showpost";
         $data['posts'] = $this->mpost->getall();
         $this->load->view("template", $data);
+    }
+
+    function postedit($id="") {
+        if ($id != "") {
+            $this->form_validation->set_rules("judul", "judul", "required");
+            $this->form_validation->set_rules("isi", "isi", "required");
+            if ($this->form_validation->run() == true) {
+
+            }
+            $data["post"] = $this->mpost->getone($id);
+            $data['content'] = "editpost";
+            $this->load->view("template", $data);
+        }
+    }
+
+    function deletepost($id = "") {
+        if ($id != "") {
+            $this->mpost->delete($id);
+            redirect("dashboard/showpost");
+        }
     }
 
 }

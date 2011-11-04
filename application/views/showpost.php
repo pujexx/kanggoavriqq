@@ -41,7 +41,7 @@
             <td>
                 <!-- Icons -->
                 <a href="#" title="Edit"><img src="<?php echo base_url();?>template/simplaadmin/resources/images/icons/pencil.png" alt="Edit" /></a>
-                <a href="#" title="Delete"><img src="<?php echo base_url();?>template/simplaadmin/resources/images/icons/cross.png" alt="Delete" /></a>
+                <a href="<?php echo site_url("dashboard/deletepost/".$post['id']);?>" title="Delete"><img src="<?php echo base_url();?>template/simplaadmin/resources/images/icons/cross.png" alt="Delete" /></a>
                
             </td>
         </tr>

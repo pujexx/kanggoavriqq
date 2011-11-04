@@ -20,5 +20,18 @@ class Mpost extends CI_Model {
         }
     }
 
+    function delete($id) {
+        $this->db->where("id", $id);
+        $this->db->delete($this->table);
+    }
+
+    function getone($id) {
+        $this->db->where("id", $id);
+        $result = $this->db->get($this->table);
+        if ($result->num_rows() == 1) {
+            return $result->row_array();
+        }
+    }
+
 }
 ?>

@@ -97,7 +97,7 @@
                             </a>
                             <ul>
                                 <li><a href="<?php echo site_url("dashboard/newpost");?>">Write a new Article</a></li>
-                                <li><a class="" href="#">Manage Articles</a></li> <!-- Add class "current" to sub menu items also -->
+                                <li><a class="" href="<?php echo site_url("dashboard/showpost");?>">Manage Articles</a></li> <!-- Add class "current" to sub menu items also -->
 
                             </ul>
                         </li>
