@@ -25,6 +25,7 @@ class Dashboard extends CI_Controller {
             $date = date("Y-m-d");
             $mlebu = array("judul" => $judul, "isi" => $isi, "time" => $date);
             $this->mpost->save($mlebu);
+            $this->session->set_flashdata("notif","Berhasil menambah artikel");
             redirect("dashboard/showpost");
         }
         $data['content'] = "newpost";
@@ -49,6 +50,7 @@ class Dashboard extends CI_Controller {
                 $date = date("Y-m-d");
                 $mlebu = array("judul" => $judul, "isi" => $isi, "time" => $date);
                 $this->mpost->update($id,$mlebu);
+                $this->session->set_flashdata("notif","Berhasil mengedit artikel");
                 redirect("dashboard/showpost");
             }
             $data["post"] = $this->mpost->getone($id);
@@ -60,6 +62,7 @@ class Dashboard extends CI_Controller {
     function deletepost($id = "") {
         if ($id != "") {
             $this->mpost->delete($id);
+            $this->session->set_flashdata("notif","Berhasil menghapus artikel");
             redirect("dashboard/showpost");
         }
     }

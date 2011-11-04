@@ -80,13 +80,13 @@
                     <div id="profile-links">
 				Hello, <a href="#" title="Edit your profile">John Doe</a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
                         <br />
-                        <a href="#" title="View the Site">View the Site</a> | <a href="<?php echo site_url("login/logout");?>" title="Sign Out">Sign Out</a>
+                        <a href="#" title="View the Site">View the Site</a> | <a href="<?php echo site_url("login/logout"); ?>" title="Sign Out">Sign Out</a>
                     </div>
 
                     <ul id="main-nav">  <!-- Accordion Menu -->
 
                         <li>
-                            <a href="<?php echo site_url("dashboard");?>" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+                            <a href="<?php echo site_url("dashboard"); ?>" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
 						Dashboard
                             </a>
                         </li>
@@ -96,8 +96,8 @@
 					Articles
                             </a>
                             <ul>
-                                <li><a href="<?php echo site_url("dashboard/newpost");?>">Write a new Article</a></li>
-                                <li><a class="" href="<?php echo site_url("dashboard/showpost");?>">Manage Articles</a></li> <!-- Add class "current" to sub menu items also -->
+                                <li><a href="<?php echo site_url("dashboard/newpost"); ?>">Write a new Article</a></li>
+                                <li><a class="" href="<?php echo site_url("dashboard/showpost"); ?>">Manage Articles</a></li> <!-- Add class "current" to sub menu items also -->
 
                             </ul>
                         </li>
@@ -109,10 +109,21 @@
 
                 </div></div> <!-- End #sidebar -->
 
-            <div id="main-content"> <!-- Main Content Section with everything -->
-
+            <div id="main-content"> 
+                <!-- Main Content Section with everything -->
+                <?php $notif = $this->session->flashdata("notif"); ?>
+                <?php if (!empty($notif)) {
+ ?>
+                    <div class="notification information png_bg">    
+                        <a href="#" class="close"><img src="<?php echo base_url();?>template/simplaadmin/resources/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
+                        <div>    
+    				<?php echo $notif;?>
+                        </div>    
+                    </div>    
+                <?php } ?>
                 <?php
                 if (!empty($content)) {
+
                     $this->load->view($content);
                 }
                 ?>
