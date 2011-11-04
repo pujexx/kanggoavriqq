@@ -86,7 +86,7 @@
                     <ul id="main-nav">  <!-- Accordion Menu -->
 
                         <li>
-                            <a href="../../../www.google.com" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+                            <a href="<?php echo site_url("dashboard");?>" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
 						Dashboard
                             </a>
                         </li>
