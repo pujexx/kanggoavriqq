@@ -42,7 +42,9 @@ class Login extends CI_Controller {
         $this->session->sess_destroy();
         $this->session->set_flashdata("notif", "Sudah keluar dari sistem");
         redirect('login');
+    
     }
+    
 
 }
 ?>

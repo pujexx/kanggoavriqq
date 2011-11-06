@@ -60,6 +60,7 @@ class Dashboard extends CI_Controller {
     }
 
     function deletepost($id = "") {
+    
         if ($id != "") {
             $this->mpost->delete($id);
             $this->session->set_flashdata("notif", "Berhasil menghapus artikel");
@@ -78,6 +79,7 @@ class Dashboard extends CI_Controller {
             }
         }
     }
+  
 
 }
 ?>
