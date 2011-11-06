@@ -38,7 +38,7 @@
             <td colspan="6">
                 <div class="bulk-actions align-left">
                  
-                    <input type="submit" class="button"  value="Delete">
+                    <input type="submit" class="button"  value="Delete" onclick="return confirm('are you sure')">
                 </div>
 
 

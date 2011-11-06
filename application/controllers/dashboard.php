@@ -73,9 +73,8 @@ class Dashboard extends CI_Controller {
                 }
                 $this->session->set_flashdata("notif", "Berhasil menghapus artikel");
                 redirect("dashboard/showpost");
-            }
-            else {
-                   redirect("dashboard/showpost");
+            } else {
+                redirect("dashboard/showpost");
             }
         }
     }
