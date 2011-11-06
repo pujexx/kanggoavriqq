@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         if ($this->session->userdata("login") != "true") {
             $this->session->set_flashdata("notif", "anda bukan admin");
-            redirect("login","refresh");
+            redirect("login", "refresh");
         }
         $this->load->model("mpost");
     }
@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller {
             $date = date("Y-m-d");
             $mlebu = array("judul" => $judul, "isi" => $isi, "time" => $date);
             $this->mpost->save($mlebu);
-            $this->session->set_flashdata("notif","Berhasil menambah artikel");
+            $this->session->set_flashdata("notif", "Berhasil menambah artikel");
             redirect("dashboard/showpost");
         }
         $data['content'] = "newpost";
@@ -49,8 +49,8 @@ class Dashboard extends CI_Controller {
                 $isi = $this->input->post("isi", true);
                 $date = date("Y-m-d");
                 $mlebu = array("judul" => $judul, "isi" => $isi, "time" => $date);
-                $this->mpost->update($id,$mlebu);
-                $this->session->set_flashdata("notif","Berhasil mengedit artikel");
+                $this->mpost->update($id, $mlebu);
+                $this->session->set_flashdata("notif", "Berhasil mengedit artikel");
                 redirect("dashboard/showpost");
             }
             $data["post"] = $this->mpost->getone($id);
@@ -62,8 +62,21 @@ class Dashboard extends CI_Controller {
     function deletepost($id = "") {
         if ($id != "") {
             $this->mpost->delete($id);
-            $this->session->set_flashdata("notif","Berhasil menghapus artikel");
+            $this->session->set_flashdata("notif", "Berhasil menghapus artikel");
             redirect("dashboard/showpost");
+        } else {
+            $this->form_validation->set_rules("id", "id", "required");
+            if ($this->form_validation->run() == true) {
+                $id_post = $this->input->post("id", true);
+                foreach ($id_post as $deleteid) {
+                    $this->mpost->delete($deleteid);
+                }
+                $this->session->set_flashdata("notif", "Berhasil menghapus artikel");
+                redirect("dashboard/showpost");
+            }
+            else {
+                   redirect("dashboard/showpost");
+            }
         }
     }
 
